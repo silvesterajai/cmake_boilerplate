@@ -1,20 +1,20 @@
 # only include this once
 include_guard(GLOBAL)
 
-set(CUCKOO_BUILD_TESTING
+set(BUILD_TESTING
     ON
     CACHE BOOL "Build testing program" FORCE)
 
-if(CUCKOO_BUILD_TESTING)
-    set(CUCKOO_BUILD_GOOGLE_TEST ON)
-    find_package(Git REQUIRED)
+if(BUILD_TESTING)
+  set(BUILD_GOOGLE_TEST ON)
+  find_package(Git REQUIRED)
 endif()
 
 # Default to release
 if("${CMAKE_BUILD_TYPE}" STREQUAL "")
-    set(CMAKE_BUILD_TYPE
-        Release
-        CACHE STRING "Build type" FORCE)
+  set(CMAKE_BUILD_TYPE
+      Release
+      CACHE STRING "Build type" FORCE)
 endif()
 
 # Ensure that comple command json file is created
